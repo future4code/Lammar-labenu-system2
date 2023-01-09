@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config()
 
 export abstract class BaseDatabase {
-    protected static connection = knex({
+    static connection = knex({
         client: "mysql",
         connection: {
             host: process.env.DB_HOST,
@@ -14,5 +14,24 @@ export abstract class BaseDatabase {
             database: process.env.DB_DATABASE,
             multipleStatements: true
         }
-    })
+    });
+
+    abstract TABLE_NAME : string;
+    
+    public async create(item: any) {
+        await BaseDatabase.connection(this.TABLE_NAME).insert(item);
+    }
+
+    public async search (item: any, like: any, value: any) {
+        const result = await BaseDatabase.connection(this.TABLE_NAME).select().where(item, like, value)
+        return result
+    }
+
+    public async updateData (id: string, column:string, newData: string) {
+        const result = await BaseDatabase.connection(this.TABLE_NAME).update(column, newData).where({id})
+    }
+    public async getAll() {
+        const result = await BaseDatabase.connection(this.TABLE_NAME).select();
+        return result;
+    }
 }
