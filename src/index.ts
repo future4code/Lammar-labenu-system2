@@ -10,6 +10,7 @@ import { updateStudentClass } from './enpoints/updateStudentClass'
 import { createTeacher } from './enpoints/createTeacher'
 import { getAllTeachers } from './enpoints/getAllTeachers'
 import { updateTeacherClass } from './enpoints/updateTeacherClass'
+import { AddressInfo } from 'net'
 
 dotenv.config()
 const app = express()
@@ -17,9 +18,14 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.listen(process.env.PORT || 3003, () => {
-  console.log(`Servidor rodando na porta ${process.env.PORT || 3003}`)
-})
+const server = app.listen(process.env.PORT || 3003, () => {
+  if(server) {
+    const address = server.address() as AddressInfo;
+    console.log(`Servidor rodando na porta ${address.port}`);
+  } else {
+    console.error(`Falha ao iniciar o servidor`);
+  }
+});
 
 // Criar turma
 app.post("/turma", createClass)
