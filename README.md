@@ -11,3 +11,12 @@ https://labenu-system2-4cpm.onrender.com
 * Vinício Cassimiro Oliveira
 
 ## Funcionalidades
+* Create Student
+* Create Class
+* Create Teacher
+* Update Class Module
+* Update Teacher Class
+* Update Student Class
+* Get All Teacher
+* Search Active Classes
+* Search Student By Name
