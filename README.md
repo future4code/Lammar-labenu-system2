@@ -17,6 +17,6 @@ https://labenu-system2-4cpm.onrender.com
 * Update Class Module
 * Update Teacher Class
 * Update Student Class
-* Get All Teacher
+* Get All Teachers
 * Search Active Classes
 * Search Student By Name
