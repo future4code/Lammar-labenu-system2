@@ -1,0 +1,67 @@
+## Criar turma
+POST http://localhost:3003/turma
+Content-Type: application/json
+
+{
+    "nome": "Hopper"
+}
+
+### Buscar turmas ativas
+GET http://localhost:3003/turma
+
+### Atualizar módulo da turma
+PUT http://localhost:3003/turma
+Content-Type: application/json
+
+{
+    "id": "1",
+    "modulo": "3"
+}
+
+### Criar estudante
+POST http://localhost:3003/estudante
+Content-Type: application/json
+
+{
+    "nome": "Maria",
+    "email": "maria@email.com",
+    "data_nasc": "1994-03-01",
+    "turma_id": "2",
+    "hobbies": ["jogar ping pong", "andar de patins", "ir a praia"]
+}
+
+### Buscar turmas ativas
+GET http://localhost:3003/estudante?search=ana
+
+### Atualizar turma de estudante
+PUT http://localhost:3003/estudante
+Content-Type: application/json
+
+{
+    "id": "10",
+    "turma_id": "2"
+}
+
+### Criar docente
+POST http://localhost:3003/docente
+Content-Type: application/json
+
+{
+    "nome": "luana",
+    "email": "luana@email.com",
+    "data_nasc": "1991-12-21",
+    "turma_id": "1",
+    "especialidades": ["POO", "react"]
+}
+
+### Buscar todos os docentes
+GET http://localhost:3003/docente
+
+### Atualizar turma de docente
+PUT http://localhost:3003/docente
+Content-Type: application/json
+
+{
+    "id": "2",
+    "turma_id": "5"
+}
